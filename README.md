@@ -1,6 +1,6 @@
-# 🧠 CBT Therapy Assistant
+# 🌙 Sleep & Soul Companion
 
-An AI-powered cognitive behavioral therapy (CBT) assistant built with FastAPI backend and React frontend. This application guides users through CBT techniques by asking thoughtful questions to help them explore their thoughts, feelings, and behaviors.
+A gentle, sleep-focused CBT companion built with FastAPI backend and React frontend. This application helps users wind down and explore their emotions before sleep through calming conversations and evidence-based CBT techniques.
 
 ## 🏗️ Project Structure
 
@@ -42,10 +42,26 @@ cbt-therapy-assistant/
 - [Ollama](https://ollama.ai/) installed locally
 - UV package manager
 
-### Backend Setup
+### Quick Start
+
+**Option 1: Automated Startup (Recommended)**
+```bash
+# Install dependencies
+pip install -r requirements.txt
+
+# Start Ollama
+ollama serve
+
+# In another terminal, run the startup script
+python start_app.py
+```
+
+**Option 2: Manual Setup**
 
 1. **Install Python dependencies:**
    ```bash
+   pip install -r requirements.txt
+   # or with UV:
    uv sync
    ```
 
@@ -56,7 +72,7 @@ cbt-therapy-assistant/
 
 3. **Start the backend server:**
    ```bash
-   uv run python main.py
+   python main.py
    ```
 
    The API will be available at:
@@ -85,7 +101,7 @@ cbt-therapy-assistant/
 
 ## 🔧 API Endpoints
 
-### Base URL: `http://localhost:8000`
+### Base URL: `http://localhost:8000/api`
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
@@ -93,6 +109,16 @@ cbt-therapy-assistant/
 | GET | `/reset` | Reset the conversation history |
 | GET | `/health` | Health check endpoint |
 | GET | `/conversation` | Get current conversation history (debug) |
+
+### Bedtime Ritual Endpoints
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/bedtime/start` | Start a new bedtime ritual session |
+| POST | `/bedtime/continue` | Continue an active session with follow-up questions |
+| POST | `/bedtime/end` | End a bedtime ritual session |
+| GET | `/bedtime/session/{id}` | Get session status |
+| GET | `/bedtime/sessions` | List all active sessions |
 
 ### Example API Usage
 
@@ -114,8 +140,10 @@ curl -X GET "http://localhost:8000/reset"
 - **FastAPI** with automatic OpenAPI documentation
 - **Modular architecture** with separate services, models, and API layers
 - **Ollama integration** for local AI model inference
-- **CBT-focused conversation management** with therapeutic memory
-- **CBT technique evaluation system** to track therapeutic progress
+- **Emotion-focused CBT conversation management** with privacy-safe dialogue
+- **CBT technique evaluation system** to track helpful interactions
+- **Clinical boundaries** and professional disclaimers
+- **Evidence-based technique selection** based on emotional state
 - **CORS enabled** for frontend integration
 - **Environment-based configuration**
 
@@ -127,6 +155,9 @@ curl -X GET "http://localhost:8000/reset"
   - Thought exploration
   - Reflection encouragement
   - CBT technique usage
+- **Natural conversation flow** that asks one question at a time, respecting privacy and focusing on feelings
+- **Sleep-oriented design** with navy and light blue theme
+- **Enhanced chat visibility** with larger containers and better spacing
 - **Responsive design** for mobile and desktop
 - **Error handling** and loading states
 - **Auto-scroll** to latest messages
@@ -147,16 +178,17 @@ curl -X GET "http://localhost:8000/reset"
 
 ## 🎯 Usage
 
+### Sleep-Focused CBT Chat
 1. **Start both servers** (backend on :8000, frontend on :3000)
 2. **Open your browser** to http://localhost:3000
-3. **Start sharing** your thoughts and feelings with the CBT assistant
+3. **Start sharing** your thoughts and feelings with the sleep companion
 4. **Try messages like:**
-   - "I've been feeling anxious about my job performance"
-   - "I keep thinking everything will go wrong"
-   - "I'm having trouble sleeping because of worrying thoughts"
-   - "I feel overwhelmed by daily tasks"
+   - "I've been feeling anxious about tomorrow"
+   - "My mind keeps racing with thoughts"
+   - "I'm having trouble winding down for sleep"
+   - "I feel overwhelmed and need to relax"
 
-The assistant will guide you through CBT techniques using questions and exercises to help you explore and challenge your thoughts.
+The companion will start with gentle, emotion-focused questions (one at a time) to understand how you're feeling, then offer relevant CBT techniques based on your emotional state, helping you choose and practice the best one for peaceful sleep while maintaining privacy and clinical boundaries.
 
 ## 🧠 CBT Techniques Implemented
 

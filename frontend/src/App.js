@@ -8,7 +8,7 @@ const API_BASE = 'http://localhost:8000';
 function App() {
   const [messages, setMessages] = useState([
     {
-      content: "Hello! I'm here to help you explore your thoughts and feelings using CBT techniques. What's on your mind today?",
+      content: "🌙 Hello! I'm here to help you wind down and prepare for peaceful sleep.\n\nHow has your evening been so far? ✨",
       isUser: false,
       timestamp: new Date(),
     }
@@ -70,7 +70,7 @@ function App() {
       await axios.get(`${API_BASE}/reset`);
       setMessages([
         {
-          content: "Chat has been reset. What would you like to explore today?",
+          content: "🌙 Chat has been reset.\n\nHow has your evening been so far? ✨",
           isUser: false,
           timestamp: new Date(),
         }
@@ -115,8 +115,8 @@ function App() {
         <div className="chat-header">
           <div className="header-content">
             <MessageCircle className="header-icon" />
-            <h1>CBT Therapy Assistant</h1>
-            <p>AI-powered cognitive behavioral therapy guidance</p>
+            <h1>🌙 Sleep & Soul Companion</h1>
+            <p>Emotion-focused CBT guidance for peaceful evenings</p>
           </div>
           <button onClick={resetChat} className="reset-button">
             <RotateCcw size={18} />
@@ -156,7 +156,7 @@ function App() {
               value={inputMessage}
               onChange={(e) => setInputMessage(e.target.value)}
               onKeyPress={handleKeyPress}
-              placeholder="Share what's on your mind..."
+              placeholder="Share how you're feeling this evening... 🌙"
               className="message-input"
               rows="1"
               disabled={isLoading}
